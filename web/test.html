@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>json</title>
+    <script src="jquery.min.js"></script>
+</head>
+<body>
+<form>
+    姓名：<input type="text" id="name"/><br>
+    血量：<input type="text" id="hp"/><br>
+    伤害：<input type="text" id="damage"/><br>
+    <button id="messagebtn" type="button">提交</button>
+</form>
+<div id="msg"><span>1211</span>回调消息</div>
+<script>
+    $(function () {
+        $("#messagebtn").click(function () {
+            var name = $("#name").val();
+            // console.log(name);
+            var hp = $("#hp").val();
+            var damage = $("#damage").val();
+            var json = {"name": name, "hp": hp, "damage": damage};
+            var json1 = {"data": JSON.stringify(json)};//默认发json对象，转换成json字符串发送给具体的servlet
+            $.ajax(
+                {
+                    type: "POST",
+                    url: 'addHero',
+                    data: json1,/*这格式json对象,json javascript object notation 对象标记*/
+                    dataType: 'json', //这个地方json代表我接受的是json对象，不写默认就是json串
+                    /*默认发送的和表单一样 拼接起来的*/
+                    success: function (data) {
+                        // console.log(data);
+                        // console.log(typeof data);
+                        // console.log(JSON.parse(data).data);
+                        // console.log($("#msg").text());
+                        console.log(typeof data);
+                        console.log(data[0]);
+                        for (i in data) {
+                            var html = $("#msg").html();
+                            $("#msg").html(html + "<br>" + data[i].id + "====" + data[i].name + "=======" + data[i].damage + "=====" + data[i].hp);
+                        }
+                        //val 指的就是表单字段值  html：元素内容？带标签  text：是不带标签？
+                        // alert("提交成功！请查看日志信息");
+                    }
+                }
+            )
+            ;
+        });
+        ;
+    });
+</script>
+</body>
+</html>

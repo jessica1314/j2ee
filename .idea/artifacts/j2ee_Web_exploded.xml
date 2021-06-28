@@ -1,0 +1,22 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="j2ee:Web exploded">
+    <output-path>$PROJECT_DIR$/classes/artifacts/j2ee_Web_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="j2ee/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="j2ee" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="file-copy" path="$PROJECT_DIR$/../commons-fileupload-1.2.2.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../commons-io-1.4.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../mysql-connector-java-5.0.8-bin.jar" />
+          <element id="file-copy" path="D:/Personal App/tomcat8/apache-tomcat-8.5.59/lib/servlet-api.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../fastjson-1.2.73.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../jstl.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../standard.jar" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
